@@ -46,26 +46,25 @@ public class PuzzleSolver {
 		return solutions;
 
 	}
-	
+
 	/**
-	 * Applies the hint to the current solution 
+	 * Applies the hint to the current solution
 	 * 
 	 * @param hint
 	 * @param solution
 	 * @param houseIndex
 	 * @return
 	 */
-	private Collection<? extends Solution> applyHint(Hint hint, Solution solution, int houseIndex) {
+	private List<Solution> applyHint(Hint hint, Solution solution, int houseIndex) {
 
 		List<Solution> ret = new ArrayList<>();
 		Solution newSolution;
 
-		switch (hint.getType()) {
+		switch (hint.getAssosiationType()) {
 		case SAME:
 			newSolution = solution.clone();
-			if (addProperty(newSolution.getHouse(houseIndex), hint.getLeftProperty())
-					&& (hint.getRightProperty() == null
-							|| addProperty(newSolution.getHouse(houseIndex), hint.getRightProperty()))) {
+			if (newSolution.getHouse(houseIndex).addProperty(hint.getLeftProperty()) && (hint.getRightProperty() == null
+					|| newSolution.getHouse(houseIndex).addProperty(hint.getRightProperty()))) {
 
 				ret.add(newSolution);
 			}
@@ -73,18 +72,17 @@ public class PuzzleSolver {
 		case NEXT_TO:
 			if (houseIndex < solution.housesCount() - 1) {
 				newSolution = solution.clone();
-				if (addProperty(newSolution.getHouse(houseIndex + 1), hint.getLeftProperty())
-						&& addProperty(newSolution.getHouse(houseIndex), hint.getRightProperty())) {
+				if (newSolution.getHouse(houseIndex + 1).addProperty(hint.getLeftProperty())
+						&& newSolution.getHouse(houseIndex).addProperty(hint.getRightProperty())) {
 					ret.add(newSolution);
 				}
 			}
-			// fall through to left house processing
 		case TO_THE_LEFT_OF:
 			if (houseIndex > 0) {
 				newSolution = solution.clone();
 
-				if (addProperty(newSolution.getHouse(houseIndex - 1), hint.getLeftProperty())
-						&& addProperty(newSolution.getHouse(houseIndex), hint.getRightProperty())) {
+				if (newSolution.getHouse(houseIndex - 1).addProperty(hint.getLeftProperty())
+						&& newSolution.getHouse(houseIndex).addProperty(hint.getRightProperty())) {
 					ret.add(newSolution);
 				}
 			}
@@ -92,25 +90,6 @@ public class PuzzleSolver {
 		}
 
 		return ret;
-	}
-	
-	/**
-	 * 
-	 * @param house
-	 * @param property
-	 * @return
-	 */
-	protected boolean addProperty(House house, Map.Entry<String, String> property) {
-		String value = house.getProperties().get(property.getKey());
-		if (value == null) {
-			house.getProperties().put(property.getKey(), property.getValue());
-			return true;
-		} else {
-			if (value.equals(property.getValue())) {
-				return true;
-			}
-		}
-		return false;
 	}
 
 }

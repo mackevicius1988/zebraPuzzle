@@ -24,6 +24,7 @@ import com.swed.puzzle.domain.Solution;
 import com.swed.puzzle.writer.OutputWriter;
 
 /**
+ * Transform the output using xslt transformation
  * 
  * @author mmackevicius
  *

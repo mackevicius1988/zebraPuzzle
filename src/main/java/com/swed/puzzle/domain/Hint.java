@@ -9,12 +9,12 @@ import java.util.Map.Entry;
  */
 public class Hint {
 
-	private AssosiationType type;
+	private AssosiationType assosiationType;
 	private Entry<String, String> leftProperty;
 	private Entry<String, String> rightProperty;
 
 	public Hint(String assosiationType) {
-		this.type = AssosiationType.valueOf(assosiationType);
+		this.assosiationType = AssosiationType.valueOf(assosiationType);
 	}
 
 	public Hint(String assosiationType, Entry<String, String> prop1, Entry<String, String> prop2) {
@@ -27,12 +27,12 @@ public class Hint {
 		this(assosiationType, simpleEntry, null);
 	}
 
-	public AssosiationType getType() {
-		return type;
+	public AssosiationType getAssosiationType() {
+		return assosiationType;
 	}
 
-	public void setType(AssosiationType type) {
-		this.type = type;
+	public void setAssosiationType(AssosiationType assosiationType) {
+		this.assosiationType = assosiationType;
 	}
 
 	public Entry<String, String> getLeftProperty() {
@@ -64,7 +64,7 @@ public class Hint {
 
 	@Override
 	public String toString() {
-		return "Hint [type=" + type + ", leftProperty=" + leftProperty + ", rightProperty=" + rightProperty + "]";
+		return "Hint [type=" + assosiationType + ", leftProperty=" + leftProperty + ", rightProperty=" + rightProperty + "]";
 	}
 
 }

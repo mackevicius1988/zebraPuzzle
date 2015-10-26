@@ -2,6 +2,7 @@ package com.swed.puzzle.domain;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Map.Entry;
 
 /**
  * 
@@ -30,7 +31,7 @@ public class House implements Cloneable {
 	public void addPropery(Map.Entry<String, String> property) {
 		getProperties().put(property.getKey(), property.getValue());
 	}
-	
+
 	public String getProperty(String key) {
 		return properties.get(key);
 	}
@@ -47,4 +48,16 @@ public class House implements Cloneable {
 		return house;
 	}
 
+	public boolean addProperty(Entry<String, String> property) {
+		String value = getProperties().get(property.getKey());
+		if (value == null) {
+			getProperties().put(property.getKey(), property.getValue());
+			return true;
+		} else {
+			if (value.equals(property.getValue())) {
+				return true;
+			}
+		}
+		return false;
+	}	
 }

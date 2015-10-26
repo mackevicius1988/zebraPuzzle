@@ -11,6 +11,7 @@ import com.swed.puzzle.domain.Hint;
 import com.swed.puzzle.domain.Puzzle;
 
 /**
+ * Builds the Puzzle object from the specified .csv file
  * 
  * @author mmackevicius
  *
