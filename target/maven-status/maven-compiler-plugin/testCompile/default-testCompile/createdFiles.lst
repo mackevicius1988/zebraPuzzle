@@ -1,0 +1,4 @@
+com\swed\puzzle\main\PuzzleSolverTest.class
+com\swed\puzzle\builder\PuzzleBuilderFactoryTest.class
+com\swed\puzzle\writer\OutputWriterFactoryTest.class
+com\swed\puzzle\main\PuzzleBuilder.class

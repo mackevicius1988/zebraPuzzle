@@ -1,0 +1,14 @@
+com\swed\puzzle\main\ZebraPuzzle.class
+com\swed\puzzle\builder\impl\CsvPuzzleBuilder.class
+com\swed\puzzle\domain\Hint$AssosiationType.class
+com\swed\puzzle\domain\House.class
+com\swed\puzzle\domain\Puzzle.class
+com\swed\puzzle\domain\Hint.class
+com\swed\puzzle\domain\Solution.class
+com\swed\puzzle\builder\PuzzleBuilderFactory.class
+com\swed\puzzle\writer\OutputWriterFactory.class
+com\swed\puzzle\main\PuzzleSolver$1.class
+com\swed\puzzle\writer\OutputWriter.class
+com\swed\puzzle\builder\PuzzleBuilder.class
+com\swed\puzzle\main\PuzzleSolver.class
+com\swed\puzzle\writer\impl\XslOutputWriter.class
